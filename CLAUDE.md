@@ -17,6 +17,11 @@ context — read it before doing anything else in this repo.
 - **A second, unrelated repo** (`ameercho/cargotopakistan-v3`, a Sanity CMS
   rebuild) was explored and then dropped 2026-09-29. Do not reference it or
   resume that plan — it's closed.
+- **2026-09-29:** removed the `_legacy/` folder (the old Lovable-generated
+  Vite/React SPA source, kept around for reference during the Astro
+  migration) — no longer needed now that Astro is confirmed live. That was
+  also the only place any "Lovable" references still existed in this repo;
+  none remain. Local commit only, not pushed yet.
 - **Do not make website code changes without the user's explicit,
   per-instance permission.** Standing rule from early in this project.
 

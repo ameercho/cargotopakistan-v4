@@ -21,7 +21,19 @@ context — read it before doing anything else in this repo.
   Vite/React SPA source, kept around for reference during the Astro
   migration) — no longer needed now that Astro is confirmed live. That was
   also the only place any "Lovable" references still existed in this repo;
-  none remain. Local commit only, not pushed yet.
+  none remain. Pushed to `origin/main` (`604b89e`).
+- **Currently hosted on Netlify**, but the user is out of Netlify build
+  credits/minutes. **Considering moving hosting to Vercel** — discussed
+  2026-09-29, not yet started, no decision made to actually cut over yet.
+  Confirmed the move is mechanical (pure static Astro, no Netlify
+  functions/npm packages), but two things need porting before cutover:
+  (1) the contact/quote forms use Netlify Forms (`data-netlify`, in
+  `Layout.astro`, `contact.astro`, `get-a-quote.astro`) — no Vercel
+  equivalent, needs a replacement (e.g. Formspree or a serverless function);
+  (2) the ~15 SEO redirects (legacy `-cargo` URL 301s preserving Ads
+  Quality Score/GSC history) + security headers in `netlify.toml` need
+  porting to `vercel.json`. Do this port and get a Vercel preview deploy
+  ready before touching DNS — don't cut over without explicit go-ahead.
 - **Do not make website code changes without the user's explicit,
   per-instance permission.** Standing rule from early in this project.
 
@@ -87,6 +99,10 @@ context — read it before doing anything else in this repo.
 - Click/impression numbers in GSC haven't moved yet — expected, since most
   of the 44 pages haven't been individually recrawled. Give it 1–4 weeks
   post-migration before treating flat GSC numbers as a real problem again.
+- **Not yet done, offered but not confirmed:** removing the stale old
+  `sitemap.xml` submission from GSC, and requesting indexing directly for
+  `/pakistan-cargo-to-karachi/` and other high-value not-yet-crawled pages
+  via URL Inspection, to speed up the recrawl.
 
 ## API access / credentials (for scratchpad scripts)
 

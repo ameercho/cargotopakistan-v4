@@ -59,7 +59,31 @@ const localBusinessSchema = {
   ],
 };
 
-const schemas = [localBusinessSchema, ...(structuredData ? [structuredData].flat() : [])];
+const segments = Astro.url.pathname.split('/').filter(Boolean);
+const parentCrumbs: Record<string, { name: string; path: string }> = {
+  services: { name: 'Services', path: '/services/' },
+  areas: { name: 'Service Areas', path: '/service-areas/' },
+};
+const parentCrumb = segments.length > 1 ? parentCrumbs[segments[0]] : undefined;
+const breadcrumbSchema =
+  segments.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { name: 'Home', path: '/' },
+          ...(parentCrumb ? [parentCrumb] : []),
+          { name: title.split(' | ')[0], path: Astro.url.pathname },
+        ].map((crumb, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: crumb.name,
+          item: new URL(crumb.path, Astro.site).toString(),
+        })),
+      }
+    : null;
+
+const schemas = [localBusinessSchema, ...(breadcrumbSchema ? [breadcrumbSchema] : []), ...(structuredData ? [structuredData].flat() : [])];
 ---
 
 <!doctype html>

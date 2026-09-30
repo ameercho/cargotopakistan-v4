@@ -28,7 +28,18 @@ const serviceSchema = {
   areaServed: { '@type': 'City', name: data.city, containedInPlace: { '@type': 'Country', name: 'Pakistan' } },
 };
 const offerSchema = { '@context': 'https://schema.org', ...buildOfferCatalogSchema(organizationId) };
-const schema = [serviceSchema, offerSchema];
+const faqSchema = data.faqs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: data.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    }
+  : null;
+const schema = [serviceSchema, offerSchema, ...(faqSchema ? [faqSchema] : [])];
 ---
 
 <Layout title={data.title} description={data.description} keywords={data.keywords} ogImage={data.ogImage} structuredData={schema}>
@@ -65,6 +76,22 @@ const schema = [serviceSchema, offerSchema];
               </div>
             ))}
           </div>
+
+          {data.faqs && data.faqs.length > 0 && (
+            <div class="mt-10 not-prose">
+              <h2 class="text-2xl font-bold text-cargo-blue mb-4">
+                {data.city} Cargo: Frequently Asked Questions
+              </h2>
+              <div class="space-y-4">
+                {data.faqs.map((faq) => (
+                  <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-5">
+                    <h3 class="font-semibold text-gray-900 mb-2">{faq.question}</h3>
+                    <p class="text-gray-600">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         <aside class="space-y-4">

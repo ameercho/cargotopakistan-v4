@@ -17,6 +17,7 @@ const destinations = defineCollection({
     slug: z.string(),
     description: z.string(),
     areas: z.array(z.string()),
+    faqs: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
     heroImage: z.string().optional(),
     legacySlug: z.string().optional(), // for the 4 cities with a duplicate old "-cargo" URL
   }),
@@ -31,6 +32,7 @@ const uaeLocations = defineCollection({
     city: z.string(),
     slug: z.string(),
     locations: z.array(z.string()),
+    faqs: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
     heroImage: z.string().optional(),
   }),
 });

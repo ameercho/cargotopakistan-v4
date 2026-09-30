@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://cargotopakistan.ae',
   output: 'static',
-  integrations: [mdx(), sitemap(), icon()],
+  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/thank-you') }), icon()],
   vite: {
     plugins: [tailwindcss()],
   },

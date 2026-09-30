@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import Layout from '../../layouts/Layout.astro';
 import PricingTable from '../../components/PricingTable.astro';
+import LocationFaqs from '../../components/LocationFaqs.astro';
 import { telLink, whatsappLink, COMPANY_INFO } from '../../lib/site';
 import { buildOfferCatalogSchema } from '../../lib/pricing';
 
@@ -32,7 +33,18 @@ const serviceSchema = {
   areaServed: { '@type': 'City', name: data.city },
 };
 const offerSchema = { '@context': 'https://schema.org', ...buildOfferCatalogSchema(organizationId) };
-const schema = [serviceSchema, offerSchema];
+const faqSchema = data.faqs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: data.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    }
+  : null;
+const schema = [serviceSchema, offerSchema, ...(faqSchema ? [faqSchema] : [])];
 ---
 
 <Layout title={data.title} description={data.description} keywords={data.keywords} ogImage={data.ogImage} structuredData={schema}>
@@ -67,6 +79,8 @@ const schema = [serviceSchema, offerSchema];
               </span>
             ))}
           </div>
+
+          <LocationFaqs heading={`${data.city} Cargo Pickup: Frequently Asked Questions`} faqs={data.faqs} />
         </div>
 
         <aside class="space-y-4">

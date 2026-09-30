@@ -42,18 +42,28 @@ context — read it before doing anything else in this repo.
   `ddfc873`, a Supabase *publishable*/anon key, not a secret key — low
   severity but technically still in history since this only removed it
   going forward, didn't rewrite history).
-- **Currently hosted on Netlify**, but the user is out of Netlify build
-  credits/minutes. **Considering moving hosting to Vercel** — discussed
-  2026-09-29, not yet started, no decision made to actually cut over yet.
-  Confirmed the move is mechanical (pure static Astro, no Netlify
-  functions/npm packages), but two things need porting before cutover:
-  (1) the contact/quote forms use Netlify Forms (`data-netlify`, in
-  `Layout.astro`, `contact.astro`, `get-a-quote.astro`) — no Vercel
-  equivalent, needs a replacement (e.g. Formspree or a serverless function);
-  (2) the ~15 SEO redirects (legacy `-cargo` URL 301s preserving Ads
-  Quality Score/GSC history) + security headers in `netlify.toml` need
-  porting to `vercel.json`. Do this port and get a Vercel preview deploy
-  ready before touching DNS — don't cut over without explicit go-ahead.
+- **Vercel migration in progress** (started 2026-09-29, still not
+  production yet). Reason: out of Netlify build credits/minutes.
+  Status as of 2026-09-30:
+  - User connected the repo to Vercel; test deploy is live at
+    `cargotopakistan.vercel.app`.
+  - `vercel.json` added (committed `969cdb1`), porting `netlify.toml`'s
+    ~15 legacy `-cargo` URL 301 redirects and security/cache headers.
+    **Verified working** on the test deploy: homepage renders real
+    content, `/karachi-cargo` correctly 301s to
+    `/pakistan-cargo-to-karachi/`, `sitemap-index.xml` and `robots.txt`
+    both load, all security headers (CSP, X-Frame-Options, etc.) present
+    and match Netlify's.
+  - **The one remaining blocker before this can replace Netlify in
+    production:** the contact and quote forms use Netlify Forms
+    (`data-netlify`, in `Layout.astro`, `contact.astro`,
+    `get-a-quote.astro`) — no Vercel equivalent, currently submit to
+    nowhere on the Vercel deploy. Needs a replacement (Formspree was
+    suggested as the fastest drop-in; a Vercel serverless function is
+    the fully-self-hosted alternative) — **the user hasn't chosen one
+    yet**, ask before implementing either.
+  - **Don't touch DNS / cut over production without the user's explicit
+    go-ahead**, even after the forms are fixed.
 - **Do not make website code changes without the user's explicit,
   per-instance permission.** Standing rule from early in this project.
 

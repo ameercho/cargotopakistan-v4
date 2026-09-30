@@ -6,8 +6,12 @@ context — read it before doing anything else in this repo.
 
 ## Repo / deploy
 
-- **Active repo:** `ameercho/cargo-to-pakistan-ae-87` — this folder. Deployed
-  via Netlify to `cargotopakistan.ae`.
+- **Active repo:** `ameercho/cargotopakistan-v4` — this folder
+  (`D:\Claude Projects\cargo-to-pakistan-ae\cargotopakistan-v4`). Deployed
+  via Netlify to `cargotopakistan.ae`. Renamed 2026-09-30 from
+  `ameercho/cargo-to-pakistan-ae-87` (the original Lovable-generated name) —
+  same repo, same history, just a cleaner name. GitHub auto-redirects the
+  old URL, and the old local folder was `...\github repo`.
 - **Stack:** Astro, `output: 'static'`. Migrated off a broken Vite/React SPA
   (the old build had a `prerender.js` SSR step that silently failed and
   served empty `<!--app-html-->` shells to crawlers — that's why organic
@@ -16,7 +20,12 @@ context — read it before doing anything else in this repo.
   are being indexed by Google (verified via GSC URL Inspection).
 - **A second, unrelated repo** (`ameercho/cargotopakistan-v3`, a Sanity CMS
   rebuild) was explored and then dropped 2026-09-29. Do not reference it or
-  resume that plan — it's closed.
+  resume that plan — it's closed. **Naming warning:** this repo's name
+  (`v3`) and this active repo's new name (`v4`, see above) look like
+  sequential versions of the same project — they are NOT. `v3` was a
+  separate, abandoned CMS rebuild; `v4` is just a rename of the original
+  `-87` repo that's been live in production the whole time. Don't infer
+  any relationship or migration path between them from the names alone.
 - **2026-09-29:** removed the `_legacy/` folder (the old Lovable-generated
   Vite/React SPA source, kept around for reference during the Astro
   migration) — no longer needed now that Astro is confirmed live. That was
@@ -131,6 +140,6 @@ context — read it before doing anything else in this repo.
   me" depending on what needs a real user login (shared/cross-account
   Google tag edits require the user's own full-access login; the service
   account and embedded views are read-only there).
-- Be precise about which of the two historical repos ("v3" vs the active
-  "-87" repo) and which Ads account/child customer you're touching —
+- Be precise about which repo ("v3", dropped, vs "v4", active — see naming
+  warning above) and which Ads account/child customer you're touching —
   several past mistakes here came from operating in the wrong one.

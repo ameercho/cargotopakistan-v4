@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
-import { telLink, whatsappLink, COMPANY_INFO } from '../lib/site';
+import { telLink, whatsappLink, COMPANY_INFO, FORMSPREE_ENDPOINT } from '../lib/site';
 import { PRICING, PRICING_NOTE, buildOfferCatalogSchema } from '../lib/pricing';
 
 const pricing = PRICING;
@@ -61,9 +61,10 @@ const schema = {
         </div>
 
         <div class="bg-white p-6 md:p-8 rounded-xl shadow-xl">
-          <form name="cargo-quote" method="POST" data-netlify="true" action="/thank-you" class="space-y-4">
+          <form name="cargo-quote" method="POST" data-formspree action={FORMSPREE_ENDPOINT} class="space-y-4">
+            <input type="hidden" name="_subject" value="New quote request - cargotopakistan.ae" />
             <input type="hidden" name="form-name" value="cargo-quote" />
-            <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 
             <div class="text-center mb-6">
               <h2 class="text-2xl font-bold text-gray-900 mb-1">Get Your Free Quote</h2>
@@ -113,6 +114,7 @@ const schema = {
             </div>
 
             <button type="submit" class="btn-accent w-full text-lg py-3">Get My Free Quote</button>
+            <p data-form-status role="alert" class="text-sm text-red-600 text-center"></p>
             <p class="text-xs text-gray-500 text-center">We'll respond within 2 hours with your personalized quote</p>
           </form>
         </div>
@@ -133,3 +135,8 @@ const schema = {
     </div>
   </section>
 </Layout>
+
+<script>
+  import { initFormspreeForms } from '../lib/formspree';
+  initFormspreeForms();
+</script>

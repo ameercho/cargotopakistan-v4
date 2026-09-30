@@ -77,6 +77,9 @@ export const NAVIGATION_LINKS = {
 
 export const GTM_ID = 'GTM-TCDZPFK';
 
+// Formspree endpoint for the contact and quote forms (the ID is public, not a secret).
+export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mnpnropz';
+
 export function whatsappLink(message: string) {
   return `${CONTACT_INFO.whatsappBase}?text=${encodeURIComponent(message)}`;
 }

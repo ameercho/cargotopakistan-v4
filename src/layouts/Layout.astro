@@ -162,48 +162,5 @@ const schemas = [localBusinessSchema, ...(breadcrumbSchema ? [breadcrumbSchema] 
 
     {!hideChrome && <Footer />}
     {!hideChrome && <FloatingActions />}
-
-    <!--
-      Hidden Netlify Forms registration.
-      Netlify detects forms by scanning built HTML for `data-netlify`/`netlify`
-      attributes. Every form name used anywhere on the site (visible forms AND
-      any referenced-but-not-yet-built ones) must have a static instance
-      somewhere so Netlify registers it at deploy time. Ported as-is from the
-      old site's index.html.
-    -->
-    <form name="contact" netlify hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="text" name="phone" />
-      <input type="text" name="subject" />
-      <select name="inquiry"><option>quote</option></select>
-      <textarea name="message"></textarea>
-    </form>
-    <form name="cargo-quote" netlify hidden>
-      <input type="text" name="fullName" />
-      <input type="tel" name="phone" />
-      <input type="email" name="email" />
-      <select name="originCity"><option>dubai</option></select>
-      <input type="text" name="destinationCity" />
-      <select name="cargoType"><option>personal</option></select>
-      <textarea name="message"></textarea>
-    </form>
-    <form name="quote" netlify hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="text" name="phone" />
-      <input type="text" name="fromLocation" />
-      <input type="text" name="toLocation" />
-      <input type="text" name="serviceType" />
-      <input type="text" name="weight" />
-      <textarea name="description"></textarea>
-    </form>
-    {['abudhabi', 'ajman', 'alain', 'dubai', 'fujairah', 'rasalkhaimah', 'sharjah', 'ummalquwain'].map((area) => (
-      <form name={`${area}-pickup`} netlify hidden>
-        <input type="text" name="name" />
-        <input type="text" name="phone" />
-        <input type="text" name="location" />
-      </form>
-    ))}
   </body>
 </html>

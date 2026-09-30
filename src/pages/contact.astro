@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
-import { COMPANY_INFO, whatsappLink } from '../lib/site';
+import { COMPANY_INFO, FORMSPREE_ENDPOINT, whatsappLink } from '../lib/site';
 
 // Additional lines alongside the primary number — all ring the same team.
 const ADDITIONAL_PHONE_NUMBERS = ['+971585847087', '+971585817087'];
@@ -78,9 +78,10 @@ const schema = {
 
       <div class="bg-white shadow-lg rounded-xl p-6 md:p-8">
         <h2 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-        <form name="contact" method="POST" data-netlify="true" action="/thank-you" class="space-y-4">
+        <form name="contact" method="POST" data-formspree action={FORMSPREE_ENDPOINT} class="space-y-4">
+          <input type="hidden" name="_subject" value="New contact form message - cargotopakistan.ae" />
           <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -123,8 +124,14 @@ const schema = {
           </div>
 
           <button type="submit" class="btn-primary w-full">Send Message</button>
+          <p data-form-status role="alert" class="text-sm text-red-600"></p>
         </form>
       </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  import { initFormspreeForms } from '../lib/formspree';
+  initFormspreeForms();
+</script>

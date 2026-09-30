@@ -46,8 +46,6 @@ src/
   assets/                 real photos, processed through Astro's image pipeline
                           (astro:assets) — resized/optimized/converted to WebP at build
 public/                  files served as-is (favicon, manifest, courier partner SVG logos)
-_legacy/                 the pre-migration Vite + React + Supabase source, kept for
-                          reference only — not built, not deployed
 ```
 
 Four services (Full Container, Packaging, Courier Service, Moving Home) have their own
@@ -80,7 +78,8 @@ triggered manually from the Netlify dashboard after a merge to `main`.
 
 ## History
 
-This site was rebuilt from a Vite + React + Supabase SPA (preserved in `_legacy/`) to
-static Astro in 2026, after the previous stack's client-side prerendering silently
-served empty content to search crawlers, blocking organic indexing entirely. The rebuild
-prioritizes genuinely static, crawlable HTML with no server-side rendering step to fail.
+This site was rebuilt from a Vite + React + Supabase SPA to static Astro in 2026, after
+the previous stack's client-side prerendering silently served empty content to search
+crawlers, blocking organic indexing entirely. The rebuild prioritizes genuinely static,
+crawlable HTML with no server-side rendering step to fail. The old source tree, Supabase
+project, and build tooling have all been removed — nothing from that stack remains.

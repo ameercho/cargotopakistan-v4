@@ -26,11 +26,22 @@ context — read it before doing anything else in this repo.
   separate, abandoned CMS rebuild; `v4` is just a rename of the original
   `-87` repo that's been live in production the whole time. Don't infer
   any relationship or migration path between them from the names alone.
-- **2026-09-29:** removed the `_legacy/` folder (the old Lovable-generated
-  Vite/React SPA source, kept around for reference during the Astro
-  migration) — no longer needed now that Astro is confirmed live. That was
-  also the only place any "Lovable" references still existed in this repo;
-  none remain. Pushed to `origin/main` (`604b89e`).
+- **2026-09-29 to 09-30:** removed all remaining footprints of the old
+  Lovable/Vite/React/Supabase codebase, now that Astro is confirmed live
+  and stable: the `_legacy/` source folder, `supabase/` (dead Supabase CLI
+  config, nothing in `src/` ever referenced it), `scripts/` (three
+  Vite-era build scripts — `generate-sitemap.js` was superseded by
+  `@astrojs/sitemap`, `validate-seo.js` and `remove-page-seo.js` were
+  already broken, hardcoding paths to `.tsx` files that no longer exist),
+  `tsconfig.app.json` / `tsconfig.node.json` (orphaned Vite/React tsconfigs
+  not referenced by the real `tsconfig.json`), and a local-only `.env` with
+  unused Supabase credentials. README updated to match. No "lovable" or
+  "supabase" references remain anywhere in the repo except historical
+  prose in README's "History" section.
+  **Note:** `.env` had at one point been committed to git history (commit
+  `ddfc873`, a Supabase *publishable*/anon key, not a secret key — low
+  severity but technically still in history since this only removed it
+  going forward, didn't rewrite history).
 - **Currently hosted on Netlify**, but the user is out of Netlify build
   credits/minutes. **Considering moving hosting to Vercel** — discussed
   2026-09-29, not yet started, no decision made to actually cut over yet.

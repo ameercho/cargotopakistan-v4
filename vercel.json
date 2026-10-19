@@ -1,20 +1,20 @@
 {
   "trailingSlash": true,
   "redirects": [
-    { "source": "/karachi-cargo", "destination": "/pakistan-cargo-to-karachi/", "statusCode": 301 },
-    { "source": "/lahore-cargo", "destination": "/pakistan-cargo-to-lahore/", "statusCode": 301 },
-    { "source": "/islamabad-cargo", "destination": "/pakistan-cargo-to-islamabad/", "statusCode": 301 },
-    { "source": "/peshawar-cargo", "destination": "/pakistan-cargo-to-peshawar/", "statusCode": 301 },
-    { "source": "/faisalabad-cargo", "destination": "/pakistan-cargo-to-faisalabad/", "statusCode": 301 },
-    { "source": "/gujranwala-cargo", "destination": "/pakistan-cargo-to-gujranwala/", "statusCode": 301 },
-    { "source": "/hyderabad-cargo", "destination": "/pakistan-cargo-to-hyderabad/", "statusCode": 301 },
-    { "source": "/larkana-cargo", "destination": "/pakistan-cargo-to-larkana/", "statusCode": 301 },
-    { "source": "/multan-cargo", "destination": "/pakistan-cargo-to-multan/", "statusCode": 301 },
-    { "source": "/rawalpindi-cargo", "destination": "/pakistan-cargo-to-rawalpindi/", "statusCode": 301 },
-    { "source": "/sargodha-cargo", "destination": "/pakistan-cargo-to-sargodha/", "statusCode": 301 },
-    { "source": "/sialkot-cargo", "destination": "/pakistan-cargo-to-sialkot/", "statusCode": 301 },
-    { "source": "/areas", "destination": "/service-areas/", "statusCode": 301 },
-    { "source": "/door-to-door-cargo", "destination": "/services/door-to-door/", "statusCode": 301 }
+    { "source": "/karachi-cargo/", "destination": "/pakistan-cargo-to-karachi/", "statusCode": 301 },
+    { "source": "/lahore-cargo/", "destination": "/pakistan-cargo-to-lahore/", "statusCode": 301 },
+    { "source": "/islamabad-cargo/", "destination": "/pakistan-cargo-to-islamabad/", "statusCode": 301 },
+    { "source": "/peshawar-cargo/", "destination": "/pakistan-cargo-to-peshawar/", "statusCode": 301 },
+    { "source": "/faisalabad-cargo/", "destination": "/pakistan-cargo-to-faisalabad/", "statusCode": 301 },
+    { "source": "/gujranwala-cargo/", "destination": "/pakistan-cargo-to-gujranwala/", "statusCode": 301 },
+    { "source": "/hyderabad-cargo/", "destination": "/pakistan-cargo-to-hyderabad/", "statusCode": 301 },
+    { "source": "/larkana-cargo/", "destination": "/pakistan-cargo-to-larkana/", "statusCode": 301 },
+    { "source": "/multan-cargo/", "destination": "/pakistan-cargo-to-multan/", "statusCode": 301 },
+    { "source": "/rawalpindi-cargo/", "destination": "/pakistan-cargo-to-rawalpindi/", "statusCode": 301 },
+    { "source": "/sargodha-cargo/", "destination": "/pakistan-cargo-to-sargodha/", "statusCode": 301 },
+    { "source": "/sialkot-cargo/", "destination": "/pakistan-cargo-to-sialkot/", "statusCode": 301 },
+    { "source": "/areas/", "destination": "/service-areas/", "statusCode": 301 },
+    { "source": "/door-to-door-cargo/", "destination": "/services/door-to-door/", "statusCode": 301 }
   ],
   "headers": [
     {

@@ -10,10 +10,10 @@ import { COURIER_PARTNERS } from '../lib/courierRates';
 const services = sortServicesForDisplay(await getCollection('services')).slice(0, 6);
 
 const popularDestinations = [
-  { name: 'Karachi', href: '/pakistan-cargo-to-karachi', desc: "Pakistan's largest port city and commercial hub" },
-  { name: 'Lahore', href: '/pakistan-cargo-to-lahore', desc: 'Cultural capital and second largest city' },
-  { name: 'Islamabad', href: '/pakistan-cargo-to-islamabad', desc: 'Capital city and political center' },
-  { name: 'Peshawar', href: '/pakistan-cargo-to-peshawar', desc: 'Historic northwestern gateway city' },
+  { name: 'Karachi', href: '/pakistan-cargo-to-karachi/', desc: "Pakistan's largest port city and commercial hub" },
+  { name: 'Lahore', href: '/pakistan-cargo-to-lahore/', desc: 'Cultural capital and second largest city' },
+  { name: 'Islamabad', href: '/pakistan-cargo-to-islamabad/', desc: 'Capital city and political center' },
+  { name: 'Peshawar', href: '/pakistan-cargo-to-peshawar/', desc: 'Historic northwestern gateway city' },
 ];
 
 const organizationId = `${COMPANY_INFO.website}/#organization`;
@@ -27,7 +27,6 @@ const schema = {
   title="Cargo to Pakistan from UAE | Door-to-Door Shipping"
   description="Professional door-to-door cargo shipping from the UAE to Pakistan. Full container, sea freight, courier & packing services with free pickup, customs clearance."
   keywords="cargo to pakistan, dubai to pakistan cargo, uae to pakistan shipping, door to door cargo pakistan"
-  h1="Reliable Cargo Shipping from UAE to Pakistan"
   structuredData={schema}
 >
   <section class="hero-gradient py-16 md:py-24">
@@ -103,7 +102,7 @@ const schema = {
       <h2 class="text-3xl font-bold text-center text-cargo-blue mb-12">Our Professional Cargo Services</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((s) => (
-          <a href={`/services/${s.data.slug}`} class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover">
+          <a href={`/services/${s.data.slug}/`} class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover">
             <Icon name="lucide:package" class="w-8 h-8 text-cargo-blue mb-3" />
             <h3 class="text-xl font-semibold text-cargo-blue mb-2">{s.data.name}</h3>
             <p class="text-gray-600 text-sm mb-3">{s.data.heroDescription}</p>

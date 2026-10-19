@@ -164,3 +164,13 @@ context — read it before doing anything else in this repo.
 - Be precise about which repo ("v3", dropped, vs "v4", active — see naming
   warning above) and which Ads account/child customer you're touching —
   several past mistakes here came from operating in the wrong one.
+
+## Update 2026-10-19 (supersedes the Netlify/Vercel notes above)
+
+- **Production is on Vercel** (domain moved). `netlify.toml` was deleted; `vercel.json`
+  holds redirects, headers, `trailingSlash: true`. Forms use **Formspree**
+  (`FORMSPREE_ENDPOINT` in `src/lib/site.ts`); the Cloudflare worker idea was dropped.
+- `astro.config.mjs` sets `trailingSlash: 'always'`; all internal links end in `/`.
+- `npm run build` runs `scripts/check-dist.mjs` (broken links, one H1, JSON-LD, OG image).
+- Ads API refresh token was re-issued 2026-10-19; use API version v23.
+- Git identity for this repo: `ibnhabib <shoaib.amir@hotmail.com>`, no Claude co-author trailer.

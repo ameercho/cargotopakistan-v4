@@ -2,7 +2,8 @@
 import { Icon } from 'astro-icon/components';
 import { NAVIGATION_LINKS, COMPANY_INFO, telLink } from '../lib/site';
 
-const currentPath = Astro.url.pathname;
+const trim = (path: string) => (path.length > 1 ? path.replace(/\/$/, '') : path);
+const currentPath = trim(Astro.url.pathname);
 ---
 
 <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
@@ -18,7 +19,7 @@ const currentPath = Astro.url.pathname;
           href={link.href}
           class:list={[
             'font-medium transition-colors',
-            currentPath === link.href
+            currentPath === trim(link.href)
               ? 'text-cargo-blue'
               : 'text-gray-600 hover:text-cargo-blue',
           ]}
@@ -33,14 +34,14 @@ const currentPath = Astro.url.pathname;
         <Icon name="lucide:phone" class="w-4 h-4" />
         {COMPANY_INFO.phone}
       </a>
-      <a href="/get-a-quote" class="btn-accent">
+      <a href="/get-a-quote/" class="btn-accent">
         Get a Quote
       </a>
     </div>
 
     <button
       id="mobile-menu-button"
-      class="md:hidden p-2 text-gray-700"
+      class="md:hidden p-2.5 min-h-11 min-w-11 text-gray-700"
       aria-label="Toggle menu"
       aria-expanded="false"
     >
@@ -59,7 +60,7 @@ const currentPath = Astro.url.pathname;
       <a href={telLink()} class="btn-outline text-cargo-blue border-cargo-blue mt-4">
         <Icon name="lucide:phone" class="w-4 h-4" /> Call {COMPANY_INFO.phone}
       </a>
-      <a href="/get-a-quote" class="btn-accent mt-2">Get a Quote</a>
+      <a href="/get-a-quote/" class="btn-accent mt-2">Get a Quote</a>
     </div>
   </nav>
 </header>

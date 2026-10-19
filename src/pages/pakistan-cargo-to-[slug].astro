@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
 import PricingTable from '../components/PricingTable.astro';
+import LocationFaqs from '../components/LocationFaqs.astro';
 import { telLink, whatsappLink, COMPANY_INFO } from '../lib/site';
 import { buildOfferCatalogSchema } from '../lib/pricing';
 
@@ -77,21 +78,7 @@ const schema = [serviceSchema, offerSchema, ...(faqSchema ? [faqSchema] : [])];
             ))}
           </div>
 
-          {data.faqs && data.faqs.length > 0 && (
-            <div class="mt-10 not-prose">
-              <h2 class="text-2xl font-bold text-cargo-blue mb-4">
-                {data.city} Cargo: Frequently Asked Questions
-              </h2>
-              <div class="space-y-4">
-                {data.faqs.map((faq) => (
-                  <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-5">
-                    <h3 class="font-semibold text-gray-900 mb-2">{faq.question}</h3>
-                    <p class="text-gray-600">{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          <LocationFaqs heading={`${data.city} Cargo: Frequently Asked Questions`} faqs={data.faqs} />
         </div>
 
         <aside class="space-y-4">

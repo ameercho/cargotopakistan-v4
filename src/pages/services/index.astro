@@ -23,7 +23,6 @@ const schema = {
   title="Our Cargo Services | Dubai & UAE to Pakistan"
   description="Explore our full range of cargo services from Dubai and UAE to Pakistan, including air freight, sea freight, door-to-door delivery, and household moving."
   keywords="cargo services dubai, shipping services uae to pakistan, air freight dubai pakistan"
-  h1="Comprehensive Cargo Services from UAE to Pakistan"
   structuredData={schema}
 >
   <section class="hero-gradient py-16">
@@ -48,7 +47,7 @@ const schema = {
               <h2 class="text-xl font-semibold text-cargo-blue">{s.data.name}</h2>
             </div>
             <p class="text-gray-600 mb-4 text-sm">{s.data.heroDescription}</p>
-            <a href={`/services/${s.data.slug}`} class="inline-flex items-center text-cargo-blue hover:text-cargo-green font-semibold">
+            <a href={`/services/${s.data.slug}/`} class="inline-flex items-center text-cargo-blue hover:text-cargo-green font-semibold">
               Learn More <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2" />
             </a>
           </div>

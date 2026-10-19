@@ -13,8 +13,10 @@ sea freight, courier, packing, and home moving services).
 - **Tailwind CSS 4** — CSS-native config via `@theme` in `src/styles/global.css`
 - **Astro Content Collections** — all destination/service/location content lives as
   Markdown in `src/content/`, typed and validated via `src/content.config.ts`
-- **[Netlify](https://netlify.com)** — hosting, forms (native Netlify Forms, no custom
-  backend), and redirects (`netlify.toml`)
+- **[Vercel](https://vercel.com)** — hosting, redirects, security headers and cache rules
+  (`vercel.json`)
+- **[Formspree](https://formspree.io)** — contact and quote form submissions
+  (`src/lib/formspree.ts`, endpoint in `src/lib/site.ts`)
 
 There is no CMS and no database by design — all content is git-based Markdown, editable
 directly in this repo.
@@ -40,7 +42,7 @@ src/
     areas/[slug].astro             UAE area page template
     index.astro, about.astro, contact.astro, faq.astro, get-a-quote.astro, ... static pages
   layouts/Layout.astro    shared <head>, canonical/OG/Twitter tags, sitewide JSON-LD,
-                          GTM, and the hidden Netlify Forms registrations
+                          and GTM
   components/             shared UI (Header, Footer, PricingTable, FloatingActions, ...)
   lib/                    site config, pricing/rate data, small typed helpers
   assets/                 real photos, processed through Astro's image pipeline
@@ -72,9 +74,10 @@ npm run preview   # serve the production build locally
 
 ## Deployment
 
-Netlify builds from `main` via `npm run build` (see `netlify.toml` for redirects,
-security headers, and cache rules). Auto-publish is currently **disabled** — deploys are
-triggered manually from the Netlify dashboard after a merge to `main`.
+Vercel builds `main` with `npm run build` and deploys it to production. Every other branch
+gets a preview deployment. `vercel.json` holds the legacy URL redirects, security headers and
+cache rules. The build also runs `scripts/check-dist.mjs`, which fails the build on broken
+internal links, missing OG image, invalid JSON-LD or pages without exactly one H1.
 
 ## History
 

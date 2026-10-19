@@ -8,8 +8,6 @@ import { COMPANY_INFO, GTM_ID } from '../lib/site';
 interface Props {
   title: string;
   description: string;
-  keywords?: string;
-  h1?: string;
   ogImage?: string;
   hideChrome?: boolean;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
@@ -19,7 +17,6 @@ interface Props {
 const {
   title,
   description,
-  keywords,
   ogImage = '/opengraph-image.png',
   hideChrome = false,
   structuredData,
@@ -93,7 +90,6 @@ const schemas = [localBusinessSchema, ...(breadcrumbSchema ? [breadcrumbSchema] 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {keywords && <meta name="keywords" content={keywords} />}
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
 
@@ -154,9 +150,14 @@ const schemas = [localBusinessSchema, ...(breadcrumbSchema ? [breadcrumbSchema] 
       </noscript>
     )}
 
+    {!hideChrome && (
+      <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:text-cargo-blue focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg">
+        Skip to main content
+      </a>
+    )}
     {!hideChrome && <Header />}
 
-    <main class="flex-1">
+    <main id="main" class="flex-1">
       <slot />
     </main>
 

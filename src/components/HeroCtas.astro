@@ -1,0 +1,19 @@
+---
+import { Icon } from 'astro-icon/components';
+import { telLink, whatsappLink } from '../lib/site';
+
+interface Props {
+  message: string;
+}
+
+const { message } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-4 mt-6">
+  <a href={whatsappLink(message)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp bg-white !text-cargo-green hover:bg-gray-100 hover:opacity-100 ring-2 ring-white/40">
+    <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp Us
+  </a>
+  <a href={telLink()} class="btn-outline text-white">
+    <Icon name="lucide:phone" class="w-5 h-5" /> Call Us
+  </a>
+</div>

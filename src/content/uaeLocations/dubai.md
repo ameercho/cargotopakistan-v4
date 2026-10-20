@@ -3,7 +3,7 @@ pageType: "origin"
 city: "Dubai"
 slug: "dubai"
 title: "Cargo from Dubai to Pakistan | Free Pickup & Door-to-Door"
-description: "Door-to-door cargo from Dubai to Pakistan with free pickup across our Dubai coverage area, professional packing and customs clearance handled for you."
+description: "Door-to-door cargo from Dubai to Pakistan with free pickup from anywhere in Dubai, professional packing and customs clearance handled for you."
 keywords: "dubai to pakistan cargo, cargo from dubai to pakistan, dubai cargo service, door to door cargo dubai"
 h1: "Cargo Services from Dubai to Pakistan"
 locations:
@@ -17,9 +17,15 @@ locations:
   - "Dubai Silicon Oasis"
   - "International City"
   - "Dubai Investment Park"
+  - "Jumeirah Lakes Towers (JLT)"
+  - "Palm Jumeirah"
+  - "Dubai Hills Estate"
+  - "Mirdif"
+  - "Arabian Ranches"
+  - "Jumeirah Village Circle (JVC)"
 faqs:
   - question: "Is cargo pickup really free in Dubai?"
-    answer: "Pickup is free from locations within our Dubai coverage area, including Dubai Marina, Downtown Dubai, Business Bay, Jumeirah, Deira, Bur Dubai, Al Barsha, Dubai Silicon Oasis, International City and Dubai Investment Park. Send us your location on WhatsApp and we will confirm it is covered."
+    answer: "Yes. We collect from anywhere in Dubai, including Dubai Marina, JLT, Palm Jumeirah, Downtown Dubai, Business Bay, Jumeirah, Dubai Hills Estate, Mirdif, Arabian Ranches, JVC, Al Barsha, Deira, Bur Dubai, Dubai Silicon Oasis, International City and Dubai Investment Park. Tell us your area and building or villa on WhatsApp and we will arrange the collection."
   - question: "Can you collect cargo from my apartment or villa in Dubai?"
     answer: "Yes. We collect from homes, offices and shops. Tell us the building name, area and floor or villa number, and whether there is lift access, so the collection team can plan for the load."
   - question: "What does door-to-door mean when shipping from Dubai to Pakistan?"
@@ -30,9 +36,9 @@ faqs:
 
 Searching for cargo from Dubai to Pakistan usually comes down to two questions: who will collect it, and who will deliver it? We do both. Our Dubai team collects from your home, office or shop, takes care of packing and paperwork, and arranges delivery to your recipient's door in Pakistan, so you don't need to visit a cargo office or drop anything off.
 
-## Free pickup coverage in Dubai
+## Free pickup from anywhere in Dubai
 
-Pickup is free from locations within our Dubai coverage area. That includes the apartment towers of **Dubai Marina, Downtown Dubai and Business Bay**, the villa districts around **Jumeirah**, the older commercial and residential districts of **Deira and Bur Dubai**, and the larger communities of **Al Barsha, Dubai Silicon Oasis, International City and Dubai Investment Park**. If your building or street isn't on this list, message us your location and we will confirm whether it is covered.
+We collect from anywhere in Dubai. Common pickup areas include the apartment towers of **Dubai Marina, JLT, Downtown Dubai and Business Bay**, the villa communities of **Jumeirah, Palm Jumeirah, Dubai Hills Estate, Mirdif and Arabian Ranches**, the family neighbourhoods of **JVC and Al Barsha**, the older districts of **Deira and Bur Dubai**, and **Dubai Silicon Oasis, International City and Dubai Investment Park**. Whatever your area in Dubai, send us your location and we will arrange the pickup.
 
 ## Door-to-door from Dubai to Pakistan
 
